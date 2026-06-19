@@ -19,7 +19,6 @@ import ashyLogo from "@assets/WhatsApp_Image_2026-06-13_at_12.56.57_178133586734
 import resumeFlyer from "@assets/WhatsApp_Image_2026-06-13_at_12.58.09_1781335867351.jpeg";
 import pptFlyer from "@assets/WhatsApp_Image_2026-06-13_at_12.56.47_1781335867352.jpeg";
 import Lightfall from "@/components/Lightfall";
-import ElectricBorder from "@/components/ElectricBorder";
 import SpotlightCard from "@/components/SpotlightCard";
 import DotGrid from "@/components/DotGrid";
 import ShapeGrid from "@/components/ShapeGrid";
@@ -490,7 +489,6 @@ function TierCard({ category, categoryIcon, name, price, features, target, popul
         onMouseLeave={handleMouseLeave}
         style={{ height: '100%', transition: 'transform 0.25s ease', transformStyle: 'preserve-3d', willChange: 'transform' }}
       >
-      <ElectricBorder color={electricColor} speed={1} chaos={0.13} borderRadius={20}>
         <SpotlightCard className="flex flex-col h-full card-glass-hover" spotlightColor={spotlightColor}>
           <div className="p-6 flex flex-col h-full">
             {/* Category badge */}
@@ -525,7 +523,6 @@ function TierCard({ category, categoryIcon, name, price, features, target, popul
             <WhatsAppBtn href={WHATSAPP_LINK} />
           </div>
         </SpotlightCard>
-      </ElectricBorder>
       </div>
     </motion.div>
   );
@@ -570,28 +567,26 @@ function ServicesSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.45 }}
         >
-          <ElectricBorder color="#3B82F6" speed={1.2} chaos={0.15} borderRadius={20}>
-            <SpotlightCard spotlightColor="rgba(59, 130, 246, 0.2)">
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-xl animate-ping" />
-                  <Sparkles className="w-6 h-6 text-accent relative z-10" />
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-3 bg-accent/10 text-accent border border-accent/30">
-                  <Sparkles className="w-3 h-3" /> AI Solutions
-                </div>
-                <h3 className="text-lg font-display font-bold mb-2">AI-Powered Services</h3>
-                <p className="text-sm text-muted mb-4">AI content generation, AI-assisted branding, and custom chatbot setup.</p>
-                <div className="px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent font-medium text-xs flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                  </span>
-                  Coming Soon
-                </div>
+          <SpotlightCard spotlightColor="rgba(59, 130, 246, 0.2)">
+            <div className="p-6 flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 relative">
+                <div className="absolute inset-0 bg-accent/20 rounded-xl animate-ping" />
+                <Sparkles className="w-6 h-6 text-accent relative z-10" />
               </div>
-            </SpotlightCard>
-          </ElectricBorder>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-3 bg-accent/10 text-accent border border-accent/30">
+                <Sparkles className="w-3 h-3" /> AI Solutions
+              </div>
+              <h3 className="text-lg font-display font-bold mb-2">AI-Powered Services</h3>
+              <p className="text-sm text-muted mb-4">AI content generation, AI-assisted branding, and custom chatbot setup.</p>
+              <div className="px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent font-medium text-xs flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                </span>
+                Coming Soon
+              </div>
+            </div>
+          </SpotlightCard>
         </motion.div>
       </div>
     </section>
