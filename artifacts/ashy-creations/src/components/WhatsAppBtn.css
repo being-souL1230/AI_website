@@ -1,0 +1,64 @@
+.wa-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgb(60, 60, 60);
+  box-shadow:
+    0 0 6px rgba(0,0,0,0.8),
+    0 0 20px -6px rgba(0,0,0,0.8);
+  padding: 10px 16px;
+  width: 100%;
+  height: 44px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.75);
+  transition: box-shadow 0.45s, transform 0.45s, background 0.45s, border-color 0.45s;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.wa-submit .wa-icon {
+  color: #22c55e;
+  font-size: 15px;
+  flex-shrink: 0;
+  transition: color 0.45s;
+  position: relative;
+  z-index: 1;
+}
+
+.wa-submit .wa-text {
+  position: relative;
+  z-index: 1;
+  transition: letter-spacing 0.45s;
+}
+
+.wa-submit:hover,
+.wa-submit:focus {
+  box-shadow:
+    0 0 18px rgba(0,0,0,0.8),
+    28px 0 22px -6px rgba(212, 175, 55, 0.5),
+    -28px 0 22px -6px rgba(212, 175, 55, 0.5),
+    0 -8px 10px -10px rgba(212,175,55,0.4) inset;
+  transform: scale(1.04);
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(212, 175, 55, 0.55);
+  color: #ffffff;
+}
+
+.wa-submit:hover .wa-icon,
+.wa-submit:focus .wa-icon {
+  color: #D4AF37;
+}
+
+.wa-submit:hover .wa-text,
+.wa-submit:focus .wa-text {
+  letter-spacing: 2.5px;
+}

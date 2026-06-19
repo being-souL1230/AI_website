@@ -1,0 +1,63 @@
+.glow-btn {
+  --glow-color: rgb(212, 175, 55);
+  --glow-spread-color: rgba(212, 175, 55, 0.65);
+  --enhanced-glow-color: rgb(255, 220, 100);
+  --btn-color: rgb(45, 32, 5);
+
+  border: 0.2em solid var(--glow-color);
+  padding: 0.85em 2.2em;
+  color: var(--glow-color);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 0.8em 0.2em var(--glow-color),
+    0 0 3em 0.8em var(--glow-spread-color),
+    inset 0 0 0.6em 0.2em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  white-space: nowrap;
+}
+
+.glow-btn::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.65;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+}
+
+.glow-btn:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+.glow-btn:hover .glow-btn-icon {
+  color: var(--btn-color);
+}
+
+.glow-btn:active {
+  box-shadow:
+    0 0 0.5em 0.2em var(--glow-color),
+    0 0 2em 1.5em var(--glow-spread-color),
+    inset 0 0 0.4em 0.2em var(--glow-color);
+}

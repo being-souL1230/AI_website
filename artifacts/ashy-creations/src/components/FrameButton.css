@@ -1,0 +1,136 @@
+.frame-btn-wrapper {
+  --point-size: 7px;
+  --point-color: #D4AF37;
+  --line-color: rgba(255, 255, 255, 0.18);
+  --line-style: solid;
+  --line-weight: 1px;
+  --bg-color: rgba(255, 255, 255, 0.04);
+  --anim-speed: 0.8s;
+
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 160px;
+  min-height: 52px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.frame-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 2px rgba(0,0,0,0.3)) drop-shadow(0 12px 6px rgba(0,0,0,0.25));
+}
+
+.frame-btn-txt-box {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  overflow: clip;
+  will-change: inset, filter;
+  transition: filter 0.25s ease;
+  animation: fb-frame-half calc(var(--anim-speed) * 0.5) forwards;
+}
+
+.frame-btn-txt-box::after {
+  content: "";
+  position: absolute;
+  inset: var(--point-size);
+  background: repeating-linear-gradient(45deg, #D4AF37, #ffffff 15%, #fff 20%);
+  mix-blend-mode: hard-light;
+  background-size: 440%;
+  transition: background-size 0.4s ease-in;
+  filter: blur(1px);
+  z-index: 3;
+  opacity: 0.06;
+}
+
+.frame-btn-txt {
+  position: absolute;
+  padding: 0.9rem 2rem;
+  z-index: 2;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+  will-change: opacity;
+  text-shadow:
+    0 -1px 1px rgba(255,255,255,0.15),
+    0 2px 2px rgba(0,0,0,0.2);
+}
+
+.frame-btn-txt:last-child {
+  color: #D4AF37;
+  opacity: 0;
+  animation: none;
+}
+
+.frame-btn-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: var(--line-style) var(--line-weight) var(--line-color);
+  background-color: var(--bg-color);
+  box-shadow: inset 0 1px 3px rgba(255,255,255,0.06);
+  animation: fb-frame-half calc(var(--anim-speed) * 0.5) forwards;
+}
+
+.frame-btn-point {
+  position: absolute;
+  box-sizing: border-box;
+  width: var(--point-size);
+  aspect-ratio: 1;
+  border-radius: 25%;
+  border: solid var(--line-weight) rgba(255,255,255,0.25);
+  background-color: var(--point-color);
+  background-image: radial-gradient(circle at 50% 120%, rgba(0,0,0,0.3), rgba(255,255,255,0.6));
+  box-shadow: 0 0 4px rgba(212,175,55,0.5);
+}
+
+.frame-btn-point.top    { top:    calc(var(--point-size) * -0.5); }
+.frame-btn-point.bottom { bottom: calc(var(--point-size) * -0.5); }
+.frame-btn-point.left   { left:   calc(var(--point-size) * -0.5); }
+.frame-btn-point.right  { right:  calc(var(--point-size) * -0.5); }
+
+/* Hover */
+.frame-btn-wrapper:hover .frame-btn-txt {
+  animation: fb-txt-out calc(var(--anim-speed) * 0.5) forwards;
+}
+.frame-btn-wrapper:hover .frame-btn-txt:last-child {
+  animation: fb-txt-in calc(var(--anim-speed) * 0.5) forwards;
+}
+.frame-btn-wrapper:hover .frame-btn-txt-box {
+  animation: fb-frame var(--anim-speed) ease;
+}
+.frame-btn-wrapper:hover .frame-btn-txt-box::after {
+  background-size: 700%;
+}
+.frame-btn-wrapper:hover .frame-btn-frame {
+  animation: fb-frame var(--anim-speed) ease;
+}
+
+@keyframes fb-txt-in {
+  90%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fb-txt-out {
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes fb-frame-half {
+  0%   { inset: 0 50%; }
+  100% { inset: 0 0%;  }
+}
+@keyframes fb-frame {
+  50%  { inset: 0 50%; }
+  100% { inset: 0 0%;  }
+}

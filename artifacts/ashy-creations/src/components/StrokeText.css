@@ -1,0 +1,28 @@
+.stroke-text-wrap {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.55);
+  display: inline-block;
+  cursor: default;
+}
+
+.stroke-text-fill {
+  position: absolute;
+  box-sizing: border-box;
+  color: #D4AF37;
+  width: 0%;
+  inset: 0;
+  border-right: 3px solid #D4AF37;
+  overflow: hidden;
+  transition: width 0.55s ease;
+  -webkit-text-stroke: 1.5px #D4AF37;
+  white-space: nowrap;
+  font: inherit;
+  letter-spacing: inherit;
+  pointer-events: none;
+}
+
+.stroke-text-wrap:hover .stroke-text-fill {
+  width: 100%;
+  filter: drop-shadow(0 0 18px #D4AF37);
+}

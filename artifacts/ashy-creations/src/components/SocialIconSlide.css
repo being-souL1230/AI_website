@@ -1,0 +1,65 @@
+.social-slide-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(0,0,0,0.35));
+}
+
+.social-slide-container {
+  height: 54px;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.social-slide-icon-rest,
+.social-slide-icon-hover {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin: 2px 0 0 0;
+  font-size: 20px;
+  color: white;
+}
+
+.social-slide-icon-rest {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
+
+.social-slide-icon-hover {
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+}
+
+.social-slide-icon-hover svg,
+.social-slide-icon-hover .slide-icon {
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-delay: 0.2s;
+}
+
+.social-slide-icon-hover.linkedin {
+  background-color: #0A66C2;
+}
+
+.social-slide-icon-hover.instagram {
+  background: linear-gradient(72.44deg, #ff7a00 11.92%, #ff0169 51.56%, #d300c5 85.69%);
+}
+
+.social-slide-container:hover .social-slide-icon-hover {
+  transform: translateY(-54px);
+}
+
+.social-slide-container:hover .social-slide-icon-hover svg,
+.social-slide-container:hover .social-slide-icon-hover .slide-icon {
+  opacity: 1;
+}
+
+.social-slide-container:hover .social-slide-icon-rest {
+  opacity: 0.3;
+}

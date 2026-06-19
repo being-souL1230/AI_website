@@ -1,0 +1,177 @@
+🧠 Full Website Build Prompt — AshY Creations
+
+Project: AshY Creations — Official Website
+
+Founders: Anshi Dixit & Yash Mishra
+
+Brand Tagline: Ideas | Strategy | Growth
+
+Core Offering: AI-powered digital services — Resume Writing, LinkedIn Optimization, Presentation Design, and future AI solutions
+
+TECH STACK
+Frontend: React.js (Vite), Tailwind CSS, Framer Motion (animations)
+
+Backend: Flask (Python) — for contact form, WhatsApp inquiry routing, and future AI service APIs
+
+Additional: React Router v6, Axios (API calls), react-icons, Google Fonts API
+
+Deployment target: Vercel (frontend) + Render/Railway (Flask backend)
+
+BRAND & DESIGN SYSTEM
+Color Palette (strictly follow — taken from logo):
+
+--primary: #3B82F6 (electric blue)
+--secondary: #7C3AED (deep violet/purple)
+--accent: #A78BFA (soft lavender glow)
+--background: #0A0E1A (near-black dark navy)
+--surface: #111827 (card backgrounds)
+--text-primary: #F9FAFB (white)
+--text-muted: #9CA3AF (gray)
+--gradient-main: linear-gradient(135deg, #3B82F6, #7C3AED)
+
+Typography:
+
+Display/Headings: Orbitron or Space Grotesk (futuristic, tech feel — from Google Fonts)
+Body text: Inter (clean, readable)
+Accents/labels: Rajdhani (works well with Indian brand context, techy feel)
+
+Visual Signature: Animated glowing orb/ring effect behind the hero logo (matching the AshY Creations logo swoosh) — this is the one unique element that ties the brand identity to the site.
+
+PAGES & SECTIONS
+1. Navbar
+
+Logo (AshY Creations wordmark + monogram icon)
+Links: Home, Services, About, Portfolio, Contact
+CTA button: "Get Started" → links to WhatsApp or contact section
+Sticky on scroll with blur-glass backdrop (backdrop-blur + semi-transparent bg)
+Hamburger menu on mobile
+
+2. Hero Section
+
+Full-screen dark background with the animated glowing swoosh/ring (CSS keyframe or Framer Motion)
+Large heading: "AI-Powered Creative Solutions"
+Subheading: "Resumes. Presentations. Brand Identity. All crafted with strategy."
+Two CTAs: Explore Services (primary blue button) + Meet the Team (ghost/outline button)
+Floating badge: "1000+ Happy Clients" animated in from bottom
+Subtle animated grid or particle mesh in background (use CSS or tsParticles)
+
+3. Services Section
+Three main service cards, each with pricing tiers (taken from flyers):
+Service 1 — Resume & LinkedIn
+
+Packages: Basic (₹199), Premium Resume (₹399), LinkedIn Setup (₹499)
+Target: Freshers, Job Seekers, Career Switchers
+
+Service 2 — Presentation Design
+
+Packages: School PPT (₹299), College PPT (₹599), Animated PPT (₹999)
+Target: School/College Students, Seminar presenters
+
+Service 3 — AI Solutions (Coming Soon / Beta)
+
+AI content generation, AI-assisted branding, chatbot setup
+Show as a "coming soon" card with a pulsing glow effect
+
+Each card: hover lift effect (translateY(-8px) + box-shadow glow in brand color), gradient top border, checklist of features, price badge, and a WhatsApp Now CTA button.
+4. Why Choose AshY? (USP Section)
+Icon grid — 6 tiles:
+
+ATS Friendly & Recruiter Approved
+100% Customized Content
+24–48 Hour Delivery
+Plagiarism Free
+Unlimited Revisions
+100% Satisfaction Guaranteed
+
+Use animated counter on scroll for stats: 1000+ Clients, 500+ Resumes, 200+ PPTs, 4.9★ Rating
+5. About / Team Section
+Two founder cards side by side:
+
+Anshi Dixit — Co-Founder | Creative & Content Lead
+Yash Mishra — Co-Founder | Strategy & Tech Lead
+
+Each card: circular profile photo placeholder with gradient ring border, short 2-line bio, social links (LinkedIn, Instagram)
+Short brand story paragraph below: "AshY Creations was born from the belief that every student and professional deserves a powerful personal brand — built with AI, delivered with care."
+6. Testimonials / Social Proof
+
+Auto-scrolling horizontal carousel of client testimonials (use Framer Motion or Swiper.js)
+Star ratings, client name, city, service used
+If no real reviews yet, use placeholder cards styled cleanly
+
+7. Contact / CTA Section
+
+Full-width dark section with gradient overlay
+Headline: "Ready to Stand Out?"
+Flask backend form: Name, Email, Phone, Service Interested In (dropdown), Message
+On submit → Flask /api/contact endpoint logs inquiry + (optional) sends WhatsApp notification via Twilio or just mailto fallback
+WhatsApp floating button (fixed bottom-right, always visible): wa.me/918383861855
+Phone number displayed prominently
+
+8. Footer
+
+Logo + tagline
+Quick links (same as navbar)
+Services list
+Social icons (Instagram, LinkedIn, WhatsApp)
+Copyright: © 2025 AshY Creations. All rights reserved.
+
+
+FLASK BACKEND (/backend)
+/backend
+  app.py          # Main Flask app
+  routes/
+    contact.py    # POST /api/contact — receives form, stores/sends notification
+  config.py       # ENV vars (SMTP or Twilio keys)
+  requirements.txt
+CORS: Enable flask-cors for React frontend origin.
+
+Contact Route: Accept JSON body {name, email, phone, service, message}, validate fields, log to a local JSON file or SQLite DB, return {status: "success"}.
+
+REACT PROJECT STRUCTURE
+/src
+  /components
+    Navbar.jsx
+    HeroSection.jsx
+    ServicesSection.jsx
+    ServiceCard.jsx
+    USPSection.jsx
+    AboutSection.jsx
+    Testimonials.jsx
+    ContactSection.jsx
+    Footer.jsx
+    WhatsAppFAB.jsx     # Floating Action Button
+  /pages
+    Home.jsx
+  /assets
+    logo.png
+  /utils
+    api.js              # Axios instance pointing to Flask
+  App.jsx
+  main.jsx
+  index.css             # Tailwind base + custom CSS vars
+
+RESPONSIVENESS
+
+Mobile-first Tailwind breakpoints: sm, md, lg, xl
+Services cards: 1 col mobile → 3 col desktop
+Hero text scales down gracefully on small screens
+Navbar collapses to hamburger on < md
+WhatsApp FAB always visible on all screen sizes
+
+
+ANIMATIONS (Framer Motion)
+
+Hero section: staggered fade-in for heading, subheading, CTAs
+Service cards: scroll-triggered entrance (whileInView)
+Stats counter: count-up animation on scroll into view
+Navbar: smooth blur transition on scroll
+Glowing logo ring: CSS @keyframes pulse/rotate
+
+
+NOTES FOR DEVELOPER
+
+No Lorem Ipsum — use real copy from the service flyers provided
+Keep the WhatsApp number (8383861855) consistent across all CTAs
+The AshY logo color palette is the single source of truth for all color decisions
+All pricing is in INR (₹), no dollar signs
+The site should feel like a premium Indian D2C brand — not generic SaaS

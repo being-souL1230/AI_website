@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm --filter @workspace/ashy-creations run build",
+  "outputDirectory": "artifacts/ashy-creations/dist",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
