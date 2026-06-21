@@ -387,65 +387,33 @@ const TIER_CARDS = [
   {
     category: "Resume & LinkedIn",
     categoryIcon: "resume",
-    name: "Basic Resume",
-    price: "199",
-    features: ["1 Professional Resume", "Modern & Clean Design", "ATS Friendly", "Unlimited Revisions", "24-48 Hrs Delivery"],
-    target: "Freshers",
-    popular: false,
-    electricColor: "#D4A843",
-    spotlightColor: "rgba(212, 168, 67, 0.2)",
-  },
-  {
-    category: "Resume & LinkedIn",
-    categoryIcon: "resume",
-    name: "Premium Resume",
-    price: "399",
-    features: ["ATS Optimized", "Keyword Targeted", "Modern Design", "Cover Letter (Optional)", "Unlimited Revisions", "24-48 Hrs Delivery"],
-    target: "Experienced Professionals",
+    name: "Resume & Career Brand Design",
+    price: "499",
+    features: [
+      "Custom resume design for all experience levels",
+      "ATS-friendly formatting and keyword optimization",
+      "Career summary, experience framing & achievements",
+      "Optional cover letter or LinkedIn profile polish",
+      "Unlimited revisions and 24-48hr delivery",
+    ],
+    target: "Job seekers, freshers, and professionals",
     popular: true,
     electricColor: "#D4A843",
     spotlightColor: "rgba(212, 168, 67, 0.2)",
   },
   {
-    category: "Resume & LinkedIn",
-    categoryIcon: "resume",
-    name: "LinkedIn Setup",
-    price: "499",
-    features: ["Profile Optimization", "Headline & About", "Experience & Skills", "Banner & Photo Guidance", "SEO Friendly"],
-    target: "Career Growth",
-    popular: false,
-    electricColor: "#D4A843",
-    spotlightColor: "rgba(212, 168, 67, 0.2)",
-  },
-  {
     category: "Presentation Design",
     categoryIcon: "ppt",
-    name: "School PPT",
-    price: "299",
-    features: ["Up to 10 Slides", "Clean & Simple Design", "Content + Design", "1 Revision", "24 Hrs Delivery"],
-    target: "School Projects",
-    popular: false,
-    electricColor: "#E84C9B",
-    spotlightColor: "rgba(232, 76, 155, 0.2)",
-  },
-  {
-    category: "Presentation Design",
-    categoryIcon: "ppt",
-    name: "College PPT",
+    name: "Professional Presentation Design",
     price: "599",
-    features: ["Up to 15 Slides", "Professional Design", "Researched Content", "2 Revisions", "24 Hrs Delivery"],
-    target: "College Assignments",
-    popular: false,
-    electricColor: "#E84C9B",
-    spotlightColor: "rgba(232, 76, 155, 0.2)",
-  },
-  {
-    category: "Presentation Design",
-    categoryIcon: "ppt",
-    name: "Animated PPT",
-    price: "999",
-    features: ["Up to 20 Slides", "Premium Animated Design", "Custom Transitions", "Unlimited Revisions", "24 Hrs Delivery"],
-    target: "Top Presentations",
+    features: [
+      "Up to 18 slides with clear visual hierarchy",
+      "Custom page layouts, icons & charts",
+      "Content flow and storyline support",
+      "Flexible design for reports, assignments, and pitches",
+      "1 revision and 24-48hr delivery",
+    ],
+    target: "All presentation needs",
     popular: true,
     electricColor: "#E84C9B",
     spotlightColor: "rgba(232, 76, 155, 0.2)",
@@ -553,41 +521,12 @@ function ServicesSection() {
 
         <FlyersButton />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12">
           {TIER_CARDS.map((tier, i) => (
             <TierCard key={tier.name} {...tier} index={i} />
           ))}
         </div>
 
-        {/* AI Solutions Coming Soon */}
-        <motion.div
-          className="max-w-sm mx-auto mt-6"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.45 }}
-        >
-          <SpotlightCard spotlightColor="rgba(59, 130, 246, 0.2)">
-            <div className="p-6 flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 relative">
-                <div className="absolute inset-0 bg-accent/20 rounded-xl animate-ping" />
-                <Sparkles className="w-6 h-6 text-accent relative z-10" />
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-3 bg-accent/10 text-accent border border-accent/30">
-                <Sparkles className="w-3 h-3" /> AI Solutions
-              </div>
-              <h3 className="text-lg font-display font-bold mb-2">AI-Powered Services</h3>
-              <p className="text-sm text-muted mb-4">AI content generation, AI-assisted branding, and custom chatbot setup.</p>
-              <div className="px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent font-medium text-xs flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                </span>
-                Coming Soon
-              </div>
-            </div>
-          </SpotlightCard>
-        </motion.div>
       </div>
     </section>
   );
@@ -727,7 +666,7 @@ function TeamSection() {
 function TestimonialsSection() {
   const testimonials = [
     { name: "Rahul S.", city: "Mumbai", service: "Premium Resume", text: "Got shortlists within a week of using the new ATS optimized resume. The design is sleek and professional.", rating: 5 },
-    { name: "Priya M.", city: "Delhi", service: "LinkedIn Setup", text: "My profile views jumped 300%. The team understood exactly how to position my experience for a career switch.", rating: 5 },
+    { name: "Priya M.", city: "Delhi", service: "Resume & Career Brand Design", text: "My profile views jumped 300%. The team understood exactly how to position my experience for a career switch.", rating: 5 },
     { name: "Karan V.", city: "Bangalore", service: "Animated PPT", text: "Used their PPT service for a major pitch. The custom animations made complex data look incredibly engaging.", rating: 5 },
     { name: "Sneha K.", city: "Pune", service: "Basic Resume", text: "As a fresher, I was confused about what to include. They made my projects look like solid experience.", rating: 4 },
   ];
@@ -808,12 +747,8 @@ function ContactSection() {
                 <div>
                   <select {...register("service")} required className="w-full bg-[#1A0B0F] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white/80 appearance-none">
                     <option value="" disabled selected>Service Interested In</option>
-                    <option value="Basic Resume">Basic Resume</option>
-                    <option value="Premium Resume">Premium Resume</option>
-                    <option value="LinkedIn Setup">LinkedIn Setup</option>
-                    <option value="School PPT">School PPT</option>
-                    <option value="College PPT">College PPT</option>
-                    <option value="Animated PPT">Animated PPT</option>
+                    <option value="Resume & Career Brand Design">Resume & Career Brand Design</option>
+                    <option value="Presentation Design">Presentation Design</option>
                     <option value="AI Solutions">AI Solutions</option>
                   </select>
                 </div>
